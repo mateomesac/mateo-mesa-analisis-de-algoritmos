@@ -6,3 +6,8 @@ Estudio de la complejidad computacional y las técnicas fundamentales de diseño
 
 ###Temario
 1. Fundamentos de control de versiones
+
+
+```Python
+print("¡Hola, mundo!")
+```
