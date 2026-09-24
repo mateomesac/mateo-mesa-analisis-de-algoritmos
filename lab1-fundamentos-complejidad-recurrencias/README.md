@@ -64,3 +64,19 @@ CASO B - Con n= 6400 realizó 416.415 comparaciones en 0.029906 segundos
 CASO C - Con n= 6400 realizó 20.476.800 comparaciones en un tiempo de 1.228809 segundos
 ### Caso promedio
 CASO A - Con n= 6400 realizó 10.228.989 comparaciones en un tiempo de 0.620007 segundos
+
+
+
+## <span style="color:red">Parte 4.2 - Validación experimental</span>
+
+![Tiempo log](graficas/parte4_tiempo_log)
+
+### Lectura de la gráfica:
+
+La curva de insertion sort [se curva hacia arriba]. Al duplicar n, su tiempo se multiplica por casi [4]: de [t(3200)] s a [t(6400)] s. Es el comportamiento de n².
+La curva de merge sort [casi no se separa del eje]. Al duplicar n, su tiempo se multiplica por un poco más de [2]: de [t(3200)] s a [t(6400)] s. Es el comportamiento de n log n.
+Con n = 6.400, insertion sort tarda [R] veces más que merge sort, y esa razón crece con n.
+
+### Conclusión. 
+
+Para Tamiza conviene merge sort, porque en la propia gráfica [la brecha se abre a medida que crece n].
