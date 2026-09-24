@@ -42,9 +42,9 @@ def main () -> None:
         16, 38, 4, 24, 42, 13, 35, 18, 29, 44, 10, 37, 21, 40, 26, 32
     ] #57 registros con valores repetidos
 
-    orden_asc = list(range(1, 100001))
+    ##orden_asc = list(range(1, 100001)) # PRUEBA
 
-    lista_ordenada = insertion_sort(orden_asc)# Insertion sort ya trabaja sobre una copia
+    lista_ordenada = insertion_sort(indices_riesgo)# Insertion sort ya trabaja sobre una copia
 
     print("\nLista ordenada de forma descentente: \n", lista_ordenada)
     print("\nLista original: \n", indices_riesgo)
