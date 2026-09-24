@@ -51,3 +51,16 @@ Utilizaría para el algoritmo de Tamiza el peor caso, ya que es necesario proces
 2. **Caso B - Ascendente:** Para este caso representaría más tiempo, ya que los datos se tienen que reorganizar completamente para tener el orden solicitado.
 3. **Caso C - Aleatorio:** Caso promedio, ya que los datos llegan sin ninguna relación con respecto al índice de riesgo.
 
+
+
+## <span style="color:red">Parte 3.2 - Demostración experimental</span>
+
+![Comparaciones vs. tamaño de entrada](graficas/parte3_comparaciones.png)
+![Tiempo vs. tamaño de entrada](graficas/parte3_tiempo.png)
+
+### Mejor caso
+CASO B - Con n= 6400 realizó 416.415 comparaciones en 0.029906 segundos
+### Peor caso
+CASO C - Con n= 6400 realizó 20.476.800 comparaciones en un tiempo de 1.228809 segundos
+### Caso promedio
+CASO A - Con n= 6400 realizó 10.228.989 comparaciones en un tiempo de 0.620007 segundos
