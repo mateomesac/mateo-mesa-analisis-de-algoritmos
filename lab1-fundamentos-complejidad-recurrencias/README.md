@@ -34,3 +34,20 @@ La ineficiencia de un algoritmo que inicia la ejecución a las **2 a. m. hasta l
 
 ### Económico: 
 Si se piensa en mejorar las capacidades del servidor para mitigar el problema, es incurrir en un gasto más elevado por mes y esta solución sería temporal, ya que si ingresan más datos de los esperados, es necesario volver a pagar por más capacidad.
+
+
+## <span style="color:red">Parte 3.1 - Explicación</span>
+
+### Lista de casos
+
+1. **Peor caso** `[830, 420, 231, 83, 55, 19, 1]` - Cuando la lista está ordenada de forma ascendente. En este caso se produce el mayor número de operaciones.
+2. **Mejor caso** `[1, 19, 55, 83, 231, 420, 830]` - Cuando la lista está ordenada de forma descendente. En este caso se produce el menor número de operaciones.
+3. **Caso promedio** `[83, 55, 420, 1, 830, 231, 19]` - Cuando la lista es aleatoria. En este caso se produce menor cantidad de operaciones debido a que hay valores que se ubican fácilmente en su posición.
+
+Utilizaría para el algoritmo de Tamiza el peor caso, ya que es necesario procesar los pacientes con mayor índice de riesgo. Esto implica ajustar el código para que el ordenamiento sea descendente y así convertirlo en el mejor caso.
+
+**NOTA:** Teniendo en cuenta que la lista debe quedar ordenada de forma descendente.
+1. **Caso A - Descendente:** Para este caso representaría menos tiempo porque el 100% de los registros ya están ordenados para procesar los pacientes con mayor índice de riesgo.
+2. **Caso B - Ascendente:** Para este caso representaría más tiempo, ya que los datos se tienen que reorganizar completamente para tener el orden solicitado.
+3. **Caso C - Aleatorio:** Caso promedio, ya que los datos llegan sin ninguna relación con respecto al índice de riesgo.
+
