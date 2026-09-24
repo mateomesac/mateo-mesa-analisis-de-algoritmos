@@ -34,6 +34,51 @@ def insertion_sort(datos: list[int]) -> tuple[list[int], int]:
     return lista, comparaciones
 
 
+def merge_sort(datos: list[int]) -> tuple[list[int], int]:
+    """Ordena una lista de indices de riesgo con el metodo de mezcla.
+ 
+    No modifica la lista recibida: trabaja sobre una copia.
+ 
+    Args:
+        datos: lista de indices de riesgo a ordenar.
+ 
+    Returns:
+        Una tupla con la lista ordenada y el numero total de
+        comparaciones entre elementos realizadas durante el proceso.
+    """
+    if len(datos) <= 1:
+        return list(datos), 0
+
+    mitad = len(datos) // 2
+
+    izquierda, comparaciones_izquierda = merge_sort(datos[:mitad])
+    derecha, comparaciones_derecha = merge_sort(datos[mitad:])
+
+    resultado = []
+    i = 0
+    j = 0
+    comparaciones = (
+        comparaciones_izquierda + comparaciones_derecha
+    )
+
+    while i < len(izquierda) and j < len(derecha):
+        # Se cuenta cada comparación entre dos elementos.
+        comparaciones += 1
+
+        # Orden descendente: primero el mayor índice de riesgo.
+        if izquierda[i] >= derecha[j]:
+            resultado.append(izquierda[i])
+            i += 1
+        else:
+            resultado.append(derecha[j])
+            j += 1
+
+    resultado.extend(izquierda[i:])
+    resultado.extend(derecha[j:])
+
+    return resultado, comparaciones
+
+
 def main () -> None:
     """Ejecución lógica del programa"""
     indices_riesgo = [
@@ -46,8 +91,14 @@ def main () -> None:
 
     lista_ordenada = insertion_sort(indices_riesgo)# Insertion sort ya trabaja sobre una copia
 
-    print("\nLista ordenada de forma descentente: \n", lista_ordenada)
+    
+    lista_ordenada_merge_sort = merge_sort(indices_riesgo)# Insertion sort ya trabaja sobre una copia
+
+    print("\nLista ordenada de forma descentente insertion sort: \n", lista_ordenada)
+    print("\nLista ordenada de forma descentente merge sort: \n", lista_ordenada_merge_sort)
     print("\nLista original: \n", indices_riesgo)
+
+    
 
 
 if __name__ == "__main__":
