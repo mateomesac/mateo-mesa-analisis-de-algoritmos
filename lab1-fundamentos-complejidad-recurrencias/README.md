@@ -69,7 +69,7 @@ CASO A - Con n= 6400 realizó 10.228.989 comparaciones en un tiempo de 0.620007 
 
 ## <span style="color:red">Parte 4.2 - Validación experimental</span>
 
-![Tiempo log](graficas/parte4_tiempo_log)
+![Tiempo log](graficas/parte4_tiempo_log.png)
 
 ### Lectura de la gráfica:
 
@@ -80,3 +80,30 @@ Con n = 6.400, insertion sort tarda [R] veces más que merge sort, y esa razón 
 ### Conclusión. 
 
 Para Tamiza conviene merge sort, porque en la propia gráfica [la brecha se abre a medida que crece n].
+
+
+
+## <span style="color:red">Parte 4.3 - Concepto técnico para la Secretaría de Salud</span>
+
+### Asunto: 
+algoritmo de ordenamiento del proceso nocturno de Tamiza
+
+### Recomendación. 
+Sustituir insertion sort por merge sort como única implementación. El canal de entrada puede cambiar sin aviso y no conviene mantener tres versiones, así que el criterio fue elegir el algoritmo cuyo costo no depende del orden de llegada. Insertion sort va de un tiempo lineal a uno cuadrático según el canal; merge sort mantiene el mismo orden de crecimiento (n log n) en los tres, y con eso el proceso deja de depender de un factor que nadie controla.
+
+### ¿Cabe en la ventana de cuatro horas? 
+Extrapolé desde n = 6.400, el mayor tamaño medido. Para insertion sort supuse T(n) = c·n² y multipliqué por (1.200.000 / 6.400)² ≈ 35.156. Para merge sort supuse T(n) = c·n·log₂ n y multipliqué por ≈ 299. 
+
+
+![Tiempo](graficas/parte4_tiempo.png)
+
+### Servidor del doble de velocidad. 
+En parte4_tiempo.png, con n = 6.400, insertion sort tarda [t_ins] s y merge sort [t_mer] s: una razón de [R]. El servidor nuevo divide cualquier tiempo por 2; el cambio de algoritmo lo divide por [R], y esa razón crece con n (con 1.200.000 registros sería unas 117 veces mayor que a 6.400, si se mantiene el modelo). Con el servidor nuevo, insertion sort quedaría en [estimado / 2] en el escenario [A/C]: [cabe / sigue sin caber]. Aun si cupiera, el margen es corto: como el tiempo crece con n², una máquina ×2 solo admite un 41 % más de registros antes de volver a desbordar.
+
+### Otras consideraciones.
+
+- **Memoria**. Merge sort necesita una copia adicional del lote (O(n)). Con 1.200.000 registros es un costo asumible; debe confirmarse en el servidor.
+- **Estabilidad.** Ambos algoritmos son estables, así que los pacientes con el mismo índice conservan el orden de carga. Ese orden es arbitrario, y conviene que el equipo clínico defina un criterio de desempate explícito.
+- **Riesgo del escenario B**. Insertion sort solo funciona bien mientras el reproceso entregue una lista casi ordenada. Si cambia ese flujo, el problema reaparece. Merge sort no depende de ello.
+- **Verificación**. Cada noche conviene comprobar que la lista final es una permutación de la entrada y está en orden descendente. El orden decide a quién se llama primero.
+
