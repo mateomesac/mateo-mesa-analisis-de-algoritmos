@@ -45,7 +45,7 @@
 - Casi todas las funciones tienen type hints y docstrings.
 
 **Lo que puede mejorar:**
-- Hay varios problemas de estilo PEP 8 (espacios al final de línea, líneas muy largas, espacios antes de paréntesis).
+- Hay varios problemas de estilo PEP 8 (líneas muy largas, espacios antes de paréntesis).
 - Las funciones `main` de `algoritmos.py` y `datos.py` tienen docstrings incompletos, y el docstring del módulo en `datos.py` quedó después de un import.
 
 ## 4. Calidad del análisis de las gráficas (9 / 20)
