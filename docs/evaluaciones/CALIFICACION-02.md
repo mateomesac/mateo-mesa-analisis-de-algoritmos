@@ -62,7 +62,7 @@ Muy buen trabajo: entregó todo completo y con análisis propio basado en sus me
 - En el paso 3 de las instrucciones, el texto entre paréntesis sobre lo que imprimen las pruebas está mal redactado y no coincide con la salida real.
 
 ## ¿El código funciona?
-Sí. Las pruebas pasan, la medición corre completa en pocos segundos y genera la gráfica. Mis pruebas con 500 listas aleatorias también dieron resultados iguales entre ambos algoritmos.
+Sí. Las pruebas pasan, la medición corre completa en pocos segundos y genera la gráfica. En 500 listas aleatorias los resultados también fueron iguales entre ambos algoritmos.
 
 ## Para el próximo laboratorio
 - Deje dos líneas en blanco entre todas las funciones.
